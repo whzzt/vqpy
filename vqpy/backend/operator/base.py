@@ -1,3 +1,4 @@
+from vqpy.backend.operator.profiler import Profiler
 from vqpy.backend.frame import Frame
 from abc import abstractmethod
 
@@ -6,6 +7,7 @@ class Operator:
 
     def __init__(self, prev=None) -> None:
         self.prev = prev
+        self.profile = Profiler()
 
     def has_next(self) -> bool:
         # video reader and stateful projector need to overwrite.
